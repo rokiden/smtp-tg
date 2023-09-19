@@ -162,7 +162,7 @@ class TGSender:
         else:
             t_to = t_to_msg
 
-        body_part = cast(email.message.EmailMessage, emsg.get_body())
+        body_part = cast(email.message.EmailMessage, emsg.get_body(preferencelist=('related', 'plain')))
         t_body = Format.Underline('No content') if body_part is None else body_part.get_content().strip()
 
         text = (
